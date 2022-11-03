@@ -1,0 +1,18 @@
+First iteration:
+- learning to fail (rewards decreasing over time)
+- probably because odds of randomly coming to rest in goal area is extremely low so odds of sampling relevant experiences with this is very low, so will never learn to aim for a smooth landing in goal and instead aim to stay hovering as long as possible to avoid the -100 reward from crashing
+
+Added optimization for sigma (noise):
+- so that the initial memory buffer pre-fill has as many 'good' experiences as possible
+
+Changed loss function from MSE to Huber and updated target network update frequency from 100 to 10:
+- hoping that Huber stops the agent from being too heavily affected by -100 rewards for crashing which are FAR more common than +100 for coming to rest
+- thought that target networks might not be learning enough times within an episode
+
+Changed hyperparams:
+- sigma = 0.2
+- beta = 0.05
+- gamma = 0.999
+- update_freq = 10
+
+This had the effect of leading the agent to start learning how to correct its angular velocity in order to stay between the flags, which eventually led to the agent learning how to land in between the flags without crashing. SUCCESS!!!

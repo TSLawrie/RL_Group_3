@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "DDPG",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/continuousv1/ddpg.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--max_eps",
+                "1000",
+                "--agent_n",
+                "1",
+                "--beta",
+                "0.04",
+                "--hidden_size",
+                "[200,100]"
+
+            ]
+        }
+    ]
+}
